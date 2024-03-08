@@ -6,7 +6,7 @@
 <%@ page import="java.sql.*" %>
 <%@ include file="dbconn.jsp" %>
 <%@ page import="com.dto.Product" %>
-<%@ page import="com.dao.ProductRepository" %>
+<%-- <%@ page import="com.dao.ProductRepository" %> --%>
 
 <%
 
@@ -56,7 +56,7 @@
 	String fname = (String) files.nextElement();
 	String fileName = multi.getFilesystemName(fname);
 
-	ProductRepository dao = ProductRepository.getInstance();
+// 	ProductRepository dao = ProductRepository.getInstance();
 	
 	PreparedStatement pstmt = null;
 
@@ -69,7 +69,7 @@
 	newProduct.setCondition(condition);
 	newProduct.setFilename(fileName);
 
-	dao.addProduct(newProduct);
+// 	dao.addProduct(newProduct);
 	
 	String sql = "INSERT INTO product VALUES(?,?,?,?,?,?,?)";
 	pstmt = conn.prepareStatement(sql);

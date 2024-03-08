@@ -1,10 +1,12 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="com.dto.Product"%>
-<%@ page import="com.dao.ProductRepository"%>
+<%-- <%@ page import="com.dao.ProductRepository"%> --%>
+<%@ include file="dbconn.jsp"%>
 
 <%
-String id = request.getParameter("id");
+	String id = request.getParameter("id");
+	
 	if (id == null || id.trim().equals("")) {
 		response.sendRedirect("products.jsp");
 		return;
