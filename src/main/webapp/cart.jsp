@@ -16,6 +16,21 @@
 
     String cartId = session.getId();
 %>
+<script>
+	function confirmDelete() {
+	    // 사용자에게 확인 대화상자 표시
+	    var confirmation = confirm("장바구니를 비우시겠습니까?");
+	    
+	    // 사용자가 확인을 눌렀을 때만 삭제 작업 수행
+	    if (confirmation) {
+	        // JavaScript를 사용하여 삭제 작업 수행 후 페이지 이동
+	        window.location.href = "./deleteCart.jsp?cartId=<%=cartId%>";
+	    } else {
+	        // 사용자가 취소를 눌렀을 때는 아무 작업도 수행하지 않음
+	        return;
+	    }
+	}
+</script>
 <title>장바구니</title>
 </head>
 <body>
@@ -29,7 +44,7 @@
 		<div class="row">
 			<table width="100%">
 				<tr>
-					<td align="left"><a href="./deleteCart.jsp?cartId=<%=cartId%>" class="btn btn-danger">삭제하기</a></td>
+					<td align="left"><a href="#" class="btn btn-danger" onclick="confirmDelete()">전체삭제</a></td>
 					<td align="right"><a href="./shippingInfo.jsp?cartId=<%= cartId %>" class="btn btn-success">주문하기</a></td>
 				</tr>
 			</table>
